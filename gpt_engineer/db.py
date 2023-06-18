@@ -16,14 +16,12 @@ class DB:
         # Combine the database directory with the provided file path.
         full_path = self.path / key
 
-        # Check if the file exists before trying to open it.
-        if full_path.is_file():
-            # Open the file in text mode and return its content.
-            with full_path.open("r") as f:
-                return f.read()
-        else:
+        if not full_path.is_file():
             # If the file doesn't exist, raise an error.
             raise FileNotFoundError(f"No such file: '{full_path}'")
+        # Open the file in text mode and return its content.
+        with full_path.open("r") as f:
+            return f.read()
 
     def __setitem__(self, key, val):
         # Combine the database directory with the provided file path.
