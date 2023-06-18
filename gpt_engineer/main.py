@@ -26,8 +26,8 @@ def chat(
 ):
     app_dir = pathlib.Path(os.path.curdir)
     input_path = pathlib.Path(app_dir / "projects" / project_path)
-    memory_path = input_path / (run_prefix + "memory")
-    workspace_path = input_path / (run_prefix + "workspace")
+    memory_path = input_path / f"{run_prefix}memory"
+    workspace_path = input_path / f"{run_prefix}workspace"
 
     if delete_existing == "true":
         # Delete files and subdirectories in paths
